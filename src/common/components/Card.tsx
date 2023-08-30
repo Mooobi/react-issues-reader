@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export default function Card({ card }: { card: CardType }) {
   return (
-    <Link to={`detail/${card.id}`} state={card}>
+    <Link to={`detail/${card.number}`} state={card}>
       <Wrapper>
         <Container>
           <TitleSection>{`#${card.number} ${card.title}`}</TitleSection>
