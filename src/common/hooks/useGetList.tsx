@@ -2,32 +2,22 @@ import { useEffect, useState } from 'react';
 import { getData } from '../apis/api';
 import { ListType } from '../type/list';
 import { ORGANIZATION_NAME, REPOSITORY_NAME } from '../constants/constants';
+import { parseUrl } from '../util/parseUrl';
 
-export default function useGetList(inView: boolean) {
+export default function useGetList(
+  inView: boolean,
+  isLoading: boolean,
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>,
+) {
   const [list, setList] = useState<ListType>([]);
   const [page, setPage] = useState(1);
-  const [loading, setLoading] = useState(false);
   const [url, setUrl] = useState('');
 
-  const parseUrl = (link: string) => {
-    if (link) {
-      const match = link
-        .split(',')
-        .find((url: string) => url.includes('next'))
-        ?.match(/<([^>]+)>/);
-      if (match) {
-        const url = match[1];
-        return url;
-      }
-    }
-    return null;
-  };
-
   const fetchData = async () => {
-    if (loading) return;
+    if (isLoading) return;
 
     try {
-      setLoading(true);
+      setIsLoading(true);
       const result = await getData(
         page === 1
           ? `/repos/${ORGANIZATION_NAME}/${REPOSITORY_NAME}/issues?sort=comments`
@@ -40,7 +30,7 @@ export default function useGetList(inView: boolean) {
     } catch (error) {
       console.error(error);
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   };
 
