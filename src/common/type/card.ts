@@ -10,8 +10,8 @@ export type CardType = {
     [key: string]: unknown;
   };
   comments: number;
-  created_at: string | null;
-  updated_at: string | null;
+  created_at: string;
+  updated_at: string;
   body: string;
   [key: string]: unknown;
 };
