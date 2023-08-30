@@ -1,12 +1,17 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
+  ::-webkit-scrollbar {
+  width: 0;
+  }
+
 html {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
     background: #444444;
+	overflow: auto;
 }
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -24,7 +29,7 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
+	font-size: 0.875rem;
 	font: inherit;
 	vertical-align: baseline;
 	color: #444444;
@@ -39,6 +44,7 @@ body {
     height: 640px;
 	line-height: 1;
     background:white;
+	overflow: auto;
 }
 ol, ul {
 	list-style: none;
@@ -54,18 +60,5 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
-}
-button {
-	border: none;
-	padding: 0.5rem;
-	border-radius: 0.5rem;
-	color: #444444;
-	cursor: pointer;
-	font-size: 1rem;
-}
-input {
-	border-radius: 0.5rem;
-	border: 1px solid #cccccc;
-	padding: 0.375rem;
 }
 `;
