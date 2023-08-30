@@ -13,7 +13,7 @@ const Wrapper = styled.header`
   position: sticky;
   display: flex;
   justify-content: center;
-  height: 10%;
+  align-items: center;
+  height: 4rem;
   border-bottom: 1px solid #cdcdcd;
-  padding: 1rem;
 `;
