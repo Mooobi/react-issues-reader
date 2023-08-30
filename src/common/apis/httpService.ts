@@ -1,5 +1,7 @@
 import axios from 'axios';
-import { BASE_URL } from '../constants/URL';
+import { BASE_URL } from '../constants/constants';
+
+const { VITE_GH_TOKEN } = import.meta.env;
 
 export const httpService = axios.create({
   baseURL: BASE_URL,
@@ -7,7 +9,9 @@ export const httpService = axios.create({
 });
 
 httpService.interceptors.request.use((config) => {
-  config.headers.Authorization = `Bearer ${process.env.GH_TOKEN}`;
+  if (VITE_GH_TOKEN) {
+    config.headers.Authorization = `Bearer ${VITE_GH_TOKEN}`;
+  }
 
   return config;
 });
