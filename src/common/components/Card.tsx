@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 import { CardType } from '../type/card';
 import getDate from '../util/getDate';
-import { AUTHOR, CREATED_AT } from '../constants/constants';
+import { AUTHOR, COMMENT, CREATED_AT } from '../constants/constants';
 
 export default function Card({ card }: { card: CardType }) {
   return (
@@ -13,7 +13,7 @@ export default function Card({ card }: { card: CardType }) {
           card.updated_at,
         )}`}</AuthorSection>
       </Container>
-      <CommentSection>{`코멘트 ${card.comments}`}</CommentSection>
+      <CommentSection>{`${COMMENT} ${card.comments}`}</CommentSection>
     </Wrapper>
   );
 }
@@ -28,8 +28,8 @@ const Wrapper = styled.li`
 `;
 
 const Container = styled.div`
-  max-width: 80%;
-  min-width: 80%;
+  max-width: 75%;
+  min-width: 75%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -44,7 +44,7 @@ const TitleSection = styled.h2`
 
 const CommentSection = styled.div`
   font-size: 0.875rem;
-  width: 20%;
+  width: 25%;
   display: flex;
   justify-content: start;
   align-items: center;
