@@ -1,11 +1,10 @@
 import { styled } from 'styled-components';
+import { ORGANIZATION_NAME, REPOSITORY_NAME } from '../constants/URL';
 
 export default function Header() {
   return (
     <Wrapper>
-      <div>Organization Name</div>
-      <div>/</div>
-      <div>Repository Name</div>
+      <div>{`${ORGANIZATION_NAME} / ${REPOSITORY_NAME}`}</div>
     </Wrapper>
   );
 }
