@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { ORGANIZATION_NAME, REPOSITORY_NAME } from '../constants/URL';
+import { ORGANIZATION_NAME, REPOSITORY_NAME } from '../constants/constants';
 
 export default function Header() {
   return (
