@@ -9,7 +9,7 @@ export default function Header() {
   );
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.header`
   position: sticky;
   display: flex;
   justify-content: center;
