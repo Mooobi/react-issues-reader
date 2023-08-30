@@ -10,10 +10,12 @@ export default function Header() {
 }
 
 const Wrapper = styled.header`
+  top: 0;
   position: sticky;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 4rem;
   border-bottom: 1px solid #cdcdcd;
+  background: white;
 `;
