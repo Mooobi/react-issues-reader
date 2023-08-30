@@ -2,19 +2,22 @@ import { styled } from 'styled-components';
 import { CardType } from '../type/card';
 import getDate from '../util/getDate';
 import { AUTHOR, COMMENT, CREATED_AT } from '../constants/constants';
+import { Link } from 'react-router-dom';
 
 export default function Card({ card }: { card: CardType }) {
   return (
-    <Wrapper>
-      <Container>
-        <TitleSection>{`#${card.number} ${card.title}`}</TitleSection>
-        <AuthorSection>{`${AUTHOR}: ${card.user.login} ${CREATED_AT}: ${getDate(
-          card.created_at,
-          card.updated_at,
-        )}`}</AuthorSection>
-      </Container>
-      <CommentSection>{`${COMMENT} ${card.comments}`}</CommentSection>
-    </Wrapper>
+    <Link to={`detail/${card.id}`} state={card}>
+      <Wrapper>
+        <Container>
+          <TitleSection>{`#${card.number} ${card.title}`}</TitleSection>
+          <AuthorSection>{`${AUTHOR}: ${card.user.login} ${CREATED_AT}: ${getDate(
+            card.created_at,
+            card.updated_at,
+          )}`}</AuthorSection>
+        </Container>
+        <CommentSection>{`${COMMENT} ${card.comments}`}</CommentSection>
+      </Wrapper>
+    </Link>
   );
 }
 

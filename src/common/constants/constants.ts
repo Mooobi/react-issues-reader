@@ -1,5 +1,5 @@
 export const PATH_MAIN = '/';
-export const PATH_DETAIL = '/detail';
+export const PATH_DETAIL = '/detail/:id';
 
 export const ORGANIZATION_NAME = 'facebook';
 export const REPOSITORY_NAME = 'react';
