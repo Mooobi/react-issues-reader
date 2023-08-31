@@ -6,6 +6,26 @@
 참여자: 박무생
 
 # 폴더 구조
+```
+.
+└── src/
+    ├── common/
+    │   ├── apis
+    │   ├── assets
+    │   ├── components
+    │   ├── constants
+    │   ├── hooks
+    │   ├── style
+    │   ├── type
+    │   └── util
+    ├── papes/
+    │   ├── detail
+    │   ├── main
+    │   └── notFount
+    ├── App.tsx
+    ├── main.tsx
+    └── router.tsx
+```
 
 # 실행 방법
 
