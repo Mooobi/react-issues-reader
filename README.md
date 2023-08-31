@@ -15,7 +15,7 @@
 ```
 git clone https://github.com/Mooobi/react-issues-reader.git
 npm install
-npm run dev
+npm run dev
 ```
 
 # 사용 스택
