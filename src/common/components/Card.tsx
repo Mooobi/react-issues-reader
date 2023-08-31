@@ -1,11 +1,11 @@
 import { styled } from 'styled-components';
-import { CardType } from '../type/card';
+import { DetailType } from '../type/detail';
 import getDate from '../util/getDate';
 import { AUTHOR, COMMENT, CREATED_AT } from '../constants/constants';
 import { Link } from 'react-router-dom';
 
-export default function Card({ card }: { card: CardType }) {
-  return (
+export default function Card({ card }: { card: DetailType }) {
+  return card ? (
     <Link to={`detail/${card.number}`} state={card}>
       <Wrapper>
         <Container>
@@ -18,13 +18,15 @@ export default function Card({ card }: { card: CardType }) {
         <CommentSection>{`${COMMENT} ${card.comments}`}</CommentSection>
       </Wrapper>
     </Link>
+  ) : (
+    <Wrapper>Loading...</Wrapper>
   );
 }
 
 const Wrapper = styled.li`
   border-bottom: 1px solid #cdcdcd;
   height: 3rem;
-  padding: 0.5rem;
+  padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
