@@ -16,10 +16,10 @@ export default function List() {
   return (
     <Wrapper>
       {list?.map((card, index) => (
-        <>
-          <Card key={card.id} card={card} />
-          {!((index + 1) % CONTENT_COUNT) && <AdCard key={`ad-${index}`} />}
-        </>
+        <div key={card.id}>
+          <Card card={card} />
+          {!((index + 1) % CONTENT_COUNT) && <AdCard />}
+        </div>
       ))}
       <div ref={ref} />
       {isLoading && <LoadingCard>Loading...</LoadingCard>}

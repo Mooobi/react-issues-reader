@@ -1,3 +1,3 @@
-import { CardType } from './card';
+import { DetailType } from './detail';
 
-export type ListType = CardType[];
+export type ListType = DetailType[];

@@ -1,4 +1,4 @@
-export type CardType = {
+export type DetailType = {
   url: string;
   id: number;
   number: number;
