@@ -8,9 +8,8 @@ export const GlobalStyle = createGlobalStyle`
 html {
     display: flex;
     justify-content: center;
-    align-items: center;
     height: 100%;
-    background: #444444;
+
 	overflow: auto;
 }
 html, body, div, span, applet, object, iframe,
@@ -40,10 +39,12 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-    width: 360px;
-    height: 640px;
+    width: 1080px;
 	line-height: 1;
     background:white;
+	border-left: 1px solid #cdcdcd;
+	border-right: 1px solid #cdcdcd;
+
 	overflow: auto;
 }
 ol, ul {
