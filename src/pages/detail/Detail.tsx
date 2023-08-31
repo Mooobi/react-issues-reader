@@ -5,6 +5,7 @@ import { useState } from 'react';
 import MarkdownRenderer from '../../common/components/MarkDownRenderer';
 import { AUTHOR, COMMENT, CREATED_AT } from '../../common/constants/constants';
 import getDate from '../../common/util/getDate';
+import Loading from '../../common/components/Loading';
 
 export default function Detail() {
   const [isLoading, setIsLoading] = useState(false);
@@ -12,25 +13,25 @@ export default function Detail() {
 
   const { detail } = useGetDetail(issueNumber as string, isLoading, setIsLoading);
 
-  return (
-    detail && (
-      <Wrapper>
-        <Header>
-          <Avatar src={detail.user.avatar_url} />
-          <Container>
-            <TitleSection>{`#${detail.number} ${detail.title}`}</TitleSection>
-            <AuthorSection>{`${AUTHOR}: ${detail.user.login} ${CREATED_AT}: ${getDate(
-              detail.created_at,
-              detail.updated_at,
-            )}`}</AuthorSection>
-          </Container>
-          <CommentSection>{`${COMMENT} ${detail.comments}`}</CommentSection>
-        </Header>
-        <Article>
-          <MarkdownRenderer content={detail?.body as string} />
-        </Article>
-      </Wrapper>
-    )
+  return detail ? (
+    <Wrapper>
+      <Header>
+        <Avatar src={detail.user.avatar_url} />
+        <Container>
+          <TitleSection>{`#${detail.number} ${detail.title}`}</TitleSection>
+          <AuthorSection>{`${AUTHOR}: ${detail.user.login} ${CREATED_AT}: ${getDate(
+            detail.created_at,
+            detail.updated_at,
+          )}`}</AuthorSection>
+        </Container>
+        <CommentSection>{`${COMMENT} ${detail.comments}`}</CommentSection>
+      </Header>
+      <Article>
+        <MarkdownRenderer content={detail?.body as string} />
+      </Article>
+    </Wrapper>
+  ) : (
+    <Loading />
   );
 }
 
@@ -52,23 +53,22 @@ const Avatar = styled.img`
 `;
 
 const Container = styled.div`
-  max-width: 75%;
-  min-width: 75%;
+  max-width: 85%;
+  min-width: 85%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 0.2rem;
+  gap: 0.5rem;
 `;
 
 const TitleSection = styled.h2`
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: 0.875rem;
+  white-space: wrap;
 `;
 
 const CommentSection = styled.div`
   font-size: 0.875rem;
-  width: 25%;
+  width: 15%;
   display: flex;
   justify-content: start;
   align-items: center;

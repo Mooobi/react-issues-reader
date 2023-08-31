@@ -5,6 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import AdCard from './AdCard';
 import { CONTENT_COUNT } from '../constants/constants';
 import { useState } from 'react';
+import Loading from './Loading';
 
 export default function List() {
   const [isLoading, setIsLoading] = useState(false);
@@ -22,18 +23,9 @@ export default function List() {
         </div>
       ))}
       <div ref={ref} />
-      {isLoading && <LoadingCard>Loading...</LoadingCard>}
+      {isLoading && <Loading />}
     </Wrapper>
   );
 }
 
 const Wrapper = styled.ul``;
-
-const LoadingCard = styled.li`
-  border-bottom: 1px solid #cdcdcd;
-  height: 3rem;
-  padding: 0.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
