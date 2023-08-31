@@ -3,6 +3,7 @@ import { DetailType } from '../type/detail';
 import getDate from '../util/getDate';
 import { AUTHOR, COMMENT, CREATED_AT } from '../constants/constants';
 import { Link } from 'react-router-dom';
+import Loading from './Loading';
 
 export default function Card({ card }: { card: DetailType }) {
   return card ? (
@@ -19,7 +20,7 @@ export default function Card({ card }: { card: DetailType }) {
       </Wrapper>
     </Link>
   ) : (
-    <Wrapper>Loading...</Wrapper>
+    <Loading />
   );
 }
 
@@ -38,13 +39,16 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 0.2rem;
+  gap: 0.5rem;
 `;
 
 const TitleSection = styled.h2`
+  font-size: 1.25rem;
+
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-weight: bold;
 `;
 
 const CommentSection = styled.div`

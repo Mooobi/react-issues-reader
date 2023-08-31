@@ -1,15 +1,21 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
-  ::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 0;
   }
-
 html {
     display: flex;
     justify-content: center;
     height: 100%;
-
+	overflow: auto;
+	border-left: 1px solid #cdcdcd;
+	border-right: 1px solid #cdcdcd;
+}
+body {
+    width: 1080px;
+	line-height: 1;
+    background:white;
 	overflow: auto;
 }
 html, body, div, span, applet, object, iframe,
@@ -28,8 +34,6 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 0.875rem;
-	font: inherit;
 	vertical-align: baseline;
 	color: #444444;
 }
@@ -37,15 +41,6 @@ time, mark, audio, video {
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
-}
-body {
-    width: 1080px;
-	line-height: 1;
-    background:white;
-	border-left: 1px solid #cdcdcd;
-	border-right: 1px solid #cdcdcd;
-
-	overflow: auto;
 }
 ol, ul {
 	list-style: none;
