@@ -1,10 +1,13 @@
 import { styled } from 'styled-components';
-import { ORGANIZATION_NAME, REPOSITORY_NAME } from '../constants/constants';
+import { ORGANIZATION_NAME, PATH_MAIN, REPOSITORY_NAME } from '../constants/constants';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
   return (
     <Wrapper>
-      <div>{`${ORGANIZATION_NAME} / ${REPOSITORY_NAME}`}</div>
+      <Link to={PATH_MAIN}>
+        <div>{`${ORGANIZATION_NAME} / ${REPOSITORY_NAME}`}</div>
+      </Link>
     </Wrapper>
   );
 }
