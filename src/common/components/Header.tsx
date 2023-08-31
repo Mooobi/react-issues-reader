@@ -18,4 +18,6 @@ const Wrapper = styled.header`
   height: 4rem;
   border-bottom: 1px solid #cdcdcd;
   background: white;
+  font-size: 1.5rem;
+  font-weight: bold;
 `;

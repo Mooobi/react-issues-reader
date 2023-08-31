@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export default function Card({ card }: { card: DetailType }) {
   return card ? (
-    <Link to={`detail/${card.number}`} state={card}>
+    <Link to={`detail/${card.number}`}>
       <Wrapper>
         <Container>
           <TitleSection>{`#${card.number} ${card.title}`}</TitleSection>
@@ -33,8 +33,8 @@ const Wrapper = styled.li`
 `;
 
 const Container = styled.div`
-  max-width: 75%;
-  min-width: 75%;
+  max-width: 90%;
+  min-width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -49,7 +49,7 @@ const TitleSection = styled.h2`
 
 const CommentSection = styled.div`
   font-size: 0.875rem;
-  width: 25%;
+  width: 10%;
   display: flex;
   justify-content: start;
   align-items: center;
