@@ -15,7 +15,7 @@
 ```
 git clone https://github.com/Mooobi/react-issues-reader.git
 npm install
-npm run dev
+npm run dev
 ```
 
 # 사용 스택
@@ -27,6 +27,5 @@ npm run dev
 <img src='https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white' alt='styled_components' />
 <img src='https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white' alt='eslint' />
 <img src='https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E' alt='prettier' />
-
 
 #
