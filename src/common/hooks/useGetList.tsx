@@ -1,45 +1,38 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { getData } from '../apis/api';
 import { ListType } from '../type/list';
 import { ORGANIZATION_NAME, REPOSITORY_NAME } from '../constants/constants';
 import { parseUrl } from '../util/parseUrl';
 
 export default function useGetList(
-  inView: boolean,
   isLoading: boolean,
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>,
 ) {
   const [list, setList] = useState<ListType>([]);
-  const [page, setPage] = useState(1);
+  const [isFirstPage, setIsFirstPage] = useState(true);
   const [url, setUrl] = useState('');
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     if (isLoading) return;
 
+    setIsLoading(true);
+
     try {
-      setIsLoading(true);
-      const result = await getData(
-        page === 1
-          ? `/repos/${ORGANIZATION_NAME}/${REPOSITORY_NAME}/issues?sort=comments`
-          : `${url}&sort=comments`,
-      );
+      const fetchUrl = isFirstPage
+        ? `/repos/${ORGANIZATION_NAME}/${REPOSITORY_NAME}/issues?sort=comments`
+        : `${url}&sort=comments`;
+
+      const result = await getData(fetchUrl);
       const nextUrl = parseUrl(result.headers.link as string);
       setUrl(nextUrl as string);
       setList((prevList) => [...prevList, ...result.data]);
-      setPage((prevPage) => prevPage + 1);
+      setIsFirstPage(false);
     } catch (error) {
       console.error(error);
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [isLoading, setIsLoading, isFirstPage, url]);
 
-  useEffect(() => {
-    if (inView) {
-      fetchData();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [inView]);
-
-  return { list };
+  return { list, fetchData, isLoading };
 }

@@ -4,10 +4,11 @@ import getDate from '../util/getDate';
 import { AUTHOR, COMMENT, CREATED_AT } from '../constants/constants';
 import { Link } from 'react-router-dom';
 import Loading from './Loading';
+import { forwardRef } from 'react';
 
-export default function Card({ card }: { card: DetailType }) {
+const Card = forwardRef<HTMLAnchorElement, { card: DetailType }>(({ card }, ref) => {
   return card ? (
-    <Link to={`detail/${card.number}`}>
+    <Link to={`detail/${card.number}`} ref={ref}>
       <Wrapper>
         <Container>
           <TitleSection>{`#${card.number} ${card.title}`}</TitleSection>
@@ -22,7 +23,9 @@ export default function Card({ card }: { card: DetailType }) {
   ) : (
     <Loading />
   );
-}
+});
+
+export default Card;
 
 const Wrapper = styled.li`
   border-bottom: 1px solid #cdcdcd;
@@ -44,7 +47,6 @@ const Container = styled.div`
 
 const TitleSection = styled.h2`
   font-size: 1.25rem;
-
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
