@@ -30,7 +30,7 @@
 ## 실행 방법
 
 위 배포 링크를 클릭하여 배포환경에서 실행하거나,
-로컬 환경의 터미널에서 clone 후 npm install, npm start 순으로 입력하여 로컬환경에서 실행할 수 있습니다.
+로컬 환경의 터미널에서 clone 후 npm install, npm run dev 순으로 입력하여 로컬환경에서 실행할 수 있습니다.
 
 ```
 git clone https://github.com/Mooobi/react-issues-reader.git
