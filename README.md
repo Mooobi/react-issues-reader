@@ -7,7 +7,7 @@
 
 ## 폴더 구조
 ```
-.
+root
 └── src/
     ├── common/
     │   ├── apis
